@@ -1,0 +1,11 @@
+{
+  "name": "RESTful-HAPI",
+  "version": "0.0.1",
+  "dependencies": {
+    "good-console": "^5.0.0",
+    "hapi": "^8.5.1",
+    "hapi-swagger": "0.7.3",
+    "joi": "^6.4.2",
+    "mongoose": "^4.0.3"
+  }
+}
