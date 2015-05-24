@@ -39,7 +39,7 @@ server.register({
 
 server.route({
     method: 'GET',
-    path: '/user',
+    path: '/api/user',
     config: {
         tags: ['api'],
         description: 'Get All User data',
@@ -66,7 +66,7 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/user/{id}',
+    path: '/api/user/{id}',
     config: {
         tags: ['api'],
         description: 'Get specific user data',
@@ -98,7 +98,7 @@ server.route({
 
 server.route({
     method: 'PUT',
-    path: '/user/{id}',
+    path: '/api/user/{id}',
     config: {
         tags: ['api'],
         description: 'Update specific user data',
@@ -135,7 +135,7 @@ server.route({
 
 server.route({
     method: 'POST',
-    path: '/user',
+    path: '/api/user',
     config: {
         tags: ['api'],
         description: 'Save user data',
@@ -168,7 +168,7 @@ server.route({
 
 server.route({
     method: 'DELETE',
-    path: '/user/{id}',
+    path: '/api/user/{id}',
     config: {
         tags: ['api'],
         description: 'Remove specific user data',
