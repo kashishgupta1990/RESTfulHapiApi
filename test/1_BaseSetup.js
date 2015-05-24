@@ -1,3 +1,4 @@
+// ================ Base Setup ========================
 // Include Hapi package
 var Hapi = require('hapi');
 
@@ -7,6 +8,7 @@ var server = new Hapi.Server();
 // Define PORT number
 server.connection({port: 7002});
 
+// =============== Routes for our API =======================
 // Define GET route
 server.route({
     method: 'GET',      // Methods Type
@@ -35,6 +37,8 @@ server.route({
     }
 });
 
+// =============== Start our Server =======================
+// Lets start the server
 server.start(function () {
     console.log('Server running at:', server.info.uri);
 });

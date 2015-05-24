@@ -1,14 +1,14 @@
 // Include Hapi package
 var Hapi = require('hapi');
 
+// Include Joi package to validate request params and payload.
+var Joi = require('joi');
+
 // Create Server Object
 var server = new Hapi.Server();
 
 // Include Mongoose ORM to connect with database
 var mongoose = require('mongoose');
-
-// Include Joi package to validate request params and payload.
-var Joi = require('joi');
 
 // Making connection with `restdemo` database in your local machine
 mongoose.connect('mongodb://localhost/restdemo');
@@ -90,6 +90,7 @@ server.route({
         description: 'Get specific user data',
         notes: 'Get specific user data',
         validate: {
+            // Id is required field
             params: {
                 id: Joi.string().required()
             }
@@ -106,11 +107,19 @@ server.route({
                     data: error
                 });
             } else {
-                reply({
-                    statusCode: 200,
-                    message: 'User Data Successfully Fetched',
-                    data: data
-                });
+                if (data.length === 0) {
+                    reply({
+                        statusCode: 200,
+                        message: 'User Not Found',
+                        data: data
+                    });
+                } else {
+                    reply({
+                        statusCode: 200,
+                        message: 'User Data Successfully Fetched',
+                        data: data
+                    });
+                }
             }
         });
     }
